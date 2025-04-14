@@ -4,6 +4,7 @@ body {
     padding: 0;
     text-align: center;
 }
+
 .navbar {
     background-color: #007bff;
     padding: 15px;
@@ -12,6 +13,7 @@ body {
     gap: 20px;
     flex-wrap: wrap;
 }
+
 .navbar a {
     color: white;
     text-decoration: none;
@@ -19,6 +21,7 @@ body {
     font-size: 16px;
     font-weight: bold;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -26,6 +29,7 @@ body {
     max-width: 500px;
     margin: 30px auto;
 }
+
 .grid-item {
     color: white;
     font-size: 18px;
@@ -37,25 +41,175 @@ body {
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
+
 .grid-item .icon {
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
 }
-.green { background-color: #28a745; }
-.orange { background-color: #fd7e14; }
-.red { background-color: #dc3545; }
-.blue { background-color: #17a2b8; }
-.yellow { background-color: #ffc107; }
-.darkgreen { background-color: #218838; }
 
-.watermark {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.5);
-    font-weight: bold;
+.green {
+    background-color: #28a745;
 }
 
+.orange {
+    background-color: #fd7e14;
+}
+
+.red {
+    background-color: #dc3545;
+}
+
+.blue {
+    background-color: #17a2b8;
+}
+
+.yellow {
+    background-color: #ffc107;
+}
+
+.darkgreen {
+    background-color: #218838;
+}
+
+/* Watermark bar */
+.watermark {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .watermark {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Tombol kembali agar tidak tumpang tindih watermark */
+.btn.back {
+    background-color: #6c757d;
+    color: white;
+    bottom: 60px;
+    z-index: 998;
+    margin-bottom: 80px; /* beri jarak cukup agar tidak menumpuk watermark */
+}
+
+/* Theme (Dark mode) */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.navbar.dark-mode {
+    background-color: #1f1f1f;
+}
+
+.grid-item.dark-mode {
+    background-color: #333 !important;
+    color: white;
+}
+
+/* Theme Switcher */
+#theme-switcher {
+    position: fixed;
+    bottom: 15px; /* lebih tinggi agar tidak tumpuk watermark */
+    right: 20px;
+    z-index: 1001; /* di atas watermark dan tombol */
+    padding: 8px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+#theme-switcher.dark-mode {
+    background-color: white;
+}
+
+#theme-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.form-input {
+    width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.button-group {
+    margin: 20px auto;
+}
+
+.btn {
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn.hitung {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn.reset {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.hasil {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Media Content */
+#mediaText {
+    border: none;
+    padding: 20px;
+    transition: all 0.3s ease;
+    background-color: #f7f7f7;
+    margin: 10px auto;
+    max-width: 600px;
+}
+
+.text-control {
+    margin-bottom: 15px;
+}
+
+/* Margin Control Button */
+#margin-control {
+    position: fixed;
+    bottom: 80px; /* beri jarak lebih tinggi dari switcher */
+    right: 20px;
+    z-index: 1000;
+    padding: 8px;
+    background-color: #007bff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+#margin-control img {
+    width: 40px;
+    height: 40px;
+}
+
+body.dark-mode #mediaText {
+    background-color: #1e1e1e;  /* warna latar gelap */
+    color: #f0f0f0;             /* warna teks terang */
+}
